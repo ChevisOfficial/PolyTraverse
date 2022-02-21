@@ -1,0 +1,30 @@
+Для запуска плагина необходимо ввести команду NETLOAD в командной строке рабочего окружения AutoCAD
+Возможна следующая ошибка при загрузке:
+
+Не удалось загрузить сборку. Сведения об ошибке: System.IO.FileLoadException: Не удалось загрузить файл или сборку "PolyTraverse.dll" либо одну из их зависимостей. Операция не поддерживается. (Исключение из HRESULT: 0x80131515)
+Имя файла: 'PolyTraverse.dll' ---> System.NotSupportedException: Предпринята попытка загрузить сборку из сетевого ресурса, что в предыдущих версиях .NET Framework могло привести к помещению сборки в "песочницу". Этот выпуск .NET Framework не включает политику CAS по умолчанию, поэтому данная загрузка может быть опасной. Если эта нагрузка не предназначена для изоляции сборки, включите переключатель loadFromRemoteSources. Дополнительные сведения см. на странице http://go.microsoft.com/fwlink/?LinkId=155569.
+в System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+в System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+в System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)
+в System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)
+в System.Reflection.Assembly.LoadFrom(String assemblyFile)
+в Autodesk.AutoCAD.Runtime.ExtensionLoader.Load(String fileName)
+в loadmgd()
+
+Варианты решения:
+1. Разрешить использование библиотеки в свойствах плагина PolyTraverse.dll из проводника
+2. Добавить (изменить) следующую строку файла acad.exe.config: <loadFromRemoteSources enabled="true"/>
+3. Отключить антивирус (возможно он изолировал файл)
+
+После загрузки необходимо ввести команду ВЫБРАТЬПОЛИХОД и нажать на соответствующую полилинию. Предрасчёт выполнится автоматически
+
+Названия и функции кнопок:
+"Данные"
+	- "Открыть" - открывает файл набора точек
+	- "Сохранить" - сохраняет в файл набор точек из программы
+"Рассчитать" - производит предрасчёт полигонометрического хода в соответствии с выбранной точностью и критериями вытянутости хода
+"Обновить" - при изменении полилинии в редакторе AutoCAD присутвует возможность повторного предрасчёта хода без ввода команды
+"Инструмент" - окно ввода точности инструмента
+"Вытянутость" - окно ввода критериев полигонометрического хода
+"Отчёт" - при выполнении предрасчёта присутвует возможность сохранения результатов в отдельный текстовый файл
+"О приложении" - информация о разработчике/версии

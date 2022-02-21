@@ -1,0 +1,9 @@
+E:\PolyTraverse\PolyTraverse\bin\Debug\PolyTraverse.dll
+E:\PolyTraverse\PolyTraverse\bin\Debug\PolyTraverse.pdb
+E:\PolyTraverse\PolyTraverse\obj\Debug\PolyTraverse.csproj.CoreCompileInputs.cache
+E:\PolyTraverse\PolyTraverse\obj\Debug\PolyTraverse.dll
+E:\PolyTraverse\PolyTraverse\obj\Debug\PolyTraverse.pdb
+E:\PolyTraverse\PolyTraverse\obj\Debug\PolyTraverse.AccuracyToolForm.resources
+E:\PolyTraverse\PolyTraverse\obj\Debug\PolyTraverse.CurvatureForm.resources
+E:\PolyTraverse\PolyTraverse\obj\Debug\PolyTraverse.MainForm.resources
+E:\PolyTraverse\PolyTraverse\obj\Debug\PolyTraverse.csproj.GenerateResource.cache
